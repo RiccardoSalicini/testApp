@@ -1,8 +1,11 @@
-const express = require('express')
-const app = express()
+var express = require('express');
+var app     = express();
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 5000));
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.listen(app.get("port"), "https://nodetestapp12.herokuapp.com", () => console.log(`Example app listening on port ${port}!`))
+app.get('/', function(_, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
